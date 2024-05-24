@@ -49,6 +49,7 @@ todos.pop()
 notes.forEach(function (item,index){
     console.log(index+1+"->"+item);
 })
+console.log(notes.indexOf("new item")); //returns the index back if found otherwise -1
 
 
 
