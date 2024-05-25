@@ -20,3 +20,12 @@ console.log(todoObj);
 removeObj(todoObj,'clean kitchen')
 // console.log(`After deleting the object, the new array is ${todoObj}`);
 console.log(todoObj);
+
+const thingsToDo=function(todoObj,status){
+    const newArray=todoObj.filter(function(obj){
+        return obj.status.toLowerCase()===status.toLowerCase();
+    })
+    return newArray;
+}
+
+console.log(thingsToDo(todoObj,'completed'));
