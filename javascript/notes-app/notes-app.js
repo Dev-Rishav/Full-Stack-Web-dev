@@ -21,7 +21,7 @@
 // })
 
 
-//manupulating the values of <P>tag
+//manipulating the values of <P>tag
 const p =document.querySelectorAll('p');
 p.forEach(function(par){
     par.textContent='*****'
