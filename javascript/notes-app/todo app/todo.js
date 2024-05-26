@@ -32,7 +32,7 @@ todos.forEach(function (ele){
 const ps=document.createElement('h2');
 ps.textContent=`You have ${count} todos left`
 document.querySelector('body').appendChild(ps)
-let x=1;
+
 todos.forEach(function(todo){
         const x=document.createElement('p');
         x.textContent=todo.text;
