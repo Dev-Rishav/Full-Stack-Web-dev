@@ -53,10 +53,29 @@ const notes=[{
 // })
 
 //manipulate the button text using target property of event
-document.querySelector("button").addEventListener('click',function(e){
+// document.querySelector("button").addEventListener('click',function(e){
+//     console.log("It is working!");
+//     console.log(e); //gives the description of the event
+//     e.target.textContent= 'This button was clicked';
+// })
+
+// document.querySelectorAll('button')[1].addEventListener('click',function(){
+//     console.log("2nd button is pressed");
+// })
+
+//the problem is if the frontend developer misplace the button order in  html file then the messages of the respective button will change
+//to reduce this coupling between html doc and script file we will assign unique ids to each button
+
+
+// manipulate the button text using target property of event
+document.querySelector("#firstButton").addEventListener('click',function(e){
     console.log("It is working!");
     console.log(e); //gives the description of the event
     e.target.textContent= 'This button was clicked';
+})
+
+document.querySelector('#secondButton').addEventListener('click',function(){
+    console.log("2nd button is pressed");
 })
 
 
