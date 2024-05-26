@@ -26,3 +26,9 @@ const p =document.querySelectorAll('p');
 p.forEach(function(par){
     par.textContent='*****'
 })
+
+
+//add a new tag say <p> using javascipt
+const newp=document.createElement('p');
+newp.textContent="this para tag is made up using javascript";
+document.querySelector('body').appendChild(newp);
