@@ -39,6 +39,7 @@ todos.forEach(function(todo){
         document.querySelector('body').appendChild(x);
 })
 
-document.querySelector('button').addEventListener('click',function(e){
-    
+document.querySelector('#addTODO').addEventListener('click',function(e){
+    console.log("Add a todo");
 })
+
