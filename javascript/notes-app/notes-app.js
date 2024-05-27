@@ -74,8 +74,27 @@ document.querySelector("#firstButton").addEventListener('click',function(e){
     e.target.textContent= 'This button was clicked';
 })
 
+// document.querySelector('#secondButton').addEventListener('click',function(){
+//     console.log("2nd button is pressed");
+// })
+
+
+//id's are unique to each elements but class can be assigned to multiple elements
+
+
 document.querySelector('#secondButton').addEventListener('click',function(){
-    console.log("2nd button is pressed");
+    document.querySelectorAll('.note').forEach(function(note){
+        note.remove();
+    })
 })
 
+//--single--
+// p
+// #replace
+// .item
 
+// --Multiple--
+// p#order
+// Button.inventory
+// h1#title.application
+// h1.application#title
