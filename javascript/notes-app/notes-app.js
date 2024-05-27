@@ -98,3 +98,14 @@ document.querySelector('#secondButton').addEventListener('click',function(){
 // Button.inventory
 // h1#title.application
 // h1.application#title
+
+//taking input from browser
+// document.querySelector('#searchText').addEventListener('change',function(e){
+//     console.log("yes");
+//     console.log(e.target.value);
+// })  //change event only fires when enter is pressed or focus is shifted
+
+document.querySelector('#searchText').addEventListener('input',function(e){
+    console.log("yes");
+    console.log(e.target.value);
+})   //input event fires as soon a character is typed
