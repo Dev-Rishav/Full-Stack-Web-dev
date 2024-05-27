@@ -2,10 +2,14 @@
 <html>
     <body>
         <h1>HI there! this is my todo application</h1>
-        <input id="addnewTodo" type="text" placeholder="type your todo">
-        <button id="addTODO">Add new TODO</button>
+        <input id="searchTodo" type="text" placeholder="search to do">
+        <button id="searchTodoButton">Search</button>
         <div id="notes"></div> <!--content divider-->
         <!-- introducing div tag to handle a set of code separately according to events -->
+        <form id="createTodo">
+            <input name="titleTodo">
+            <button name="titleTodoButton">Create a Todo</button>
+        </form>
         <script src="todo.js"></script>
     </body>
 </html>

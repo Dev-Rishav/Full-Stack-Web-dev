@@ -22,6 +22,8 @@ const todos=[{
     completed: true
 }]
 
+
+//render notes
 const filter={
     searchText:''
 }
@@ -52,19 +54,21 @@ const ps=document.createElement('h2');
 ps.textContent=`You have ${count} todos left`
 document.querySelector('body').appendChild(ps)
 
-// todos.forEach(function(todo){
-//         const x=document.createElement('p');
-//         x.textContent=todo.text;
-//         document.querySelector('body').appendChild(x);
-// }) //initially rendered already
-
-document.querySelector('#addTODO').addEventListener('click',function(e){
-    console.log("Add a todo");
-})
-
-
 //Listen for todo text change
-document.querySelector('#addnewTodo').addEventListener('input',function(e){
+document.querySelector('#searchTodo').addEventListener('input',function(e){
     filter.searchText=e.target.value;
     renderNotes(todos,filter)   //rerender the notes
+})
+
+//eventlistener for submit handler
+document.querySelector('#createTodo').addEventListener('submit',function(e){
+    e.preventDefault();
+    const newTitle={
+        text: e.target.elements.titleTodo.value,
+        completed: false
+    }
+    console.log(newTitle);
+    todos.push(newTitle);
+    e.target.elements.titleTodo.value='';
+    renderNotes(todos,filter);
 })
