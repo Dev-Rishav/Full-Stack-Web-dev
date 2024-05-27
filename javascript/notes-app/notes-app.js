@@ -135,8 +135,12 @@ document.querySelector('#searchText').addEventListener('input',function(e){
 })   //input event fires as soon a character is typed
 
 //event Listener for add elements 
-document.querySelector('#nameForm').addEventListener('submit',function(e){
-    e.preventDefault();
-    console.log((e.target.elements.firstName.value)); //elements used to grab elements of a form using their name property
-    e.target.elements.firstName.value=''
+// document.querySelector('#nameForm').addEventListener('submit',function(e){
+//     e.preventDefault();
+//     console.log((e.target.elements.firstName.value)); //elements used to grab elements of a form using their name property
+//     e.target.elements.firstName.value=''
+// })
+
+document.querySelector('#testing').addEventListener('change',function(e){
+    console.log(e.target.checked); //returns boolean
 })
