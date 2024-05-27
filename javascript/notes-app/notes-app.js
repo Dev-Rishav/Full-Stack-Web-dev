@@ -105,7 +105,38 @@ document.querySelector('#secondButton').addEventListener('click',function(){
 //     console.log(e.target.value);
 // })  //change event only fires when enter is pressed or focus is shifted
 
+
+
+
+//render all the notes 
+
+const filter={
+    searchText:''
+}
+
+const notesFilter=function(notes,filter){
+    const filteredNotes=notes.filter(function(note){
+        return note.title.toLowerCase().includes(filter.searchText.toLowerCase());
+    })
+    document.querySelector('#notesMenu').innerHTML='';
+    filteredNotes.forEach(function(note){
+        const newEle=document.createElement('p')
+        newEle.textContent=note.title;
+        document.querySelector('#notesMenu').appendChild(newEle)
+    })
+}
+
+//initial rendering
+notesFilter(notes,filter);
+
 document.querySelector('#searchText').addEventListener('input',function(e){
-    console.log("yes");
-    console.log(e.target.value);
+    filter.searchText=e.target.value;
+    notesFilter(notes,filter);
 })   //input event fires as soon a character is typed
+
+//event Listener for add elements 
+document.querySelector('#nameForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    console.log((e.target.elements.firstName.value)); //elements used to grab elements of a form using their name property
+    e.target.elements.firstName.value=''
+})
