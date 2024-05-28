@@ -34,11 +34,11 @@ const renderNotes = function (todos, filter) {
     })
     // console.log(filteredNotes);
     document.querySelector('#notes').innerHTML = ''; //this clears the screen to initial condition
-    filteredNotes.forEach(function (note) {
-        const pl = document.createElement('p');
-        pl.textContent = note.text;
-        document.querySelector('#notes').appendChild(pl)
-    })
+    // filteredNotes.forEach(function (note) {
+    //     const pl = document.createElement('p');
+    //     pl.textContent = note.text;
+    //     document.querySelector('#notes').appendChild(pl)
+    // })
 }
 
 //initial rendering
@@ -74,19 +74,27 @@ document.querySelector('#createTodo').addEventListener('submit', function (e) {
 })
 
 //event listener for hideCompleted
-const completedTodoArray=[]; //new array to store the completed tasks.
+// const completedTodoArray = []; //new array to store the completed tasks.
+// document.querySelector('#notes').innerHTML=''
+// document.querySelector("#hideCompleted").addEventListener('change', function (e) {
+//     let ch = e.target.checked;
+//     if (ch) {
+//         const completedTodos = todos.filter(function (todo) {
+//             return todo.completed;
+//         })
+//         // console.log(completedTodos);
+//         completedTodos.forEach(function (item) {
+//             completedTodoArray.push(item)
+//         })
+//         renderNotes(completedTodoArray, filter);
+//     }
+//     else
+//         renderNotes(todos,filter);
+// })
 
-document.querySelector("#hideCompleted").addEventListener('change', function (e) {
-        const completedTodos = todos.filter(function (todo) {
-            return todo.completed;
-        })
-        // console.log(completedTodos);
-        completedTodos.forEach(function(item){
-            completedTodoArray.push(item)
-        })
-        renderNotes(completedTodoArray,filter);
+document.querySelector('#hideCompleted').addEventListener('change',function(e){
+    let checked=e.target.checked;
 })
-
 
 
 

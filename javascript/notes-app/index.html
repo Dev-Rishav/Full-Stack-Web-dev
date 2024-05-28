@@ -8,6 +8,7 @@
         <label>Search
         <input id="searchText" placeholder="Todos">
         </label>
+        
         <!--<p class="note">Yallo all!</p> -->
         <div id="notesMenu"></div>
         <button id="firstButton">Create Note</button>
@@ -18,7 +19,12 @@
             <button>Submit</button>
         </form> -->
         <label><input type="checkbox" id="testing"> Check me</label>
-        
+        <select id="filter-by">
+            <option value="byEdited">Sort by last edited</option>
+            <option value="byCreated">Sort by recently created</option>
+            <option value="alphabetical">Sort alphabetically</option>
+        </select>        
         <script src="notes-app.js"></script>
+        
     </body>
 </html>
