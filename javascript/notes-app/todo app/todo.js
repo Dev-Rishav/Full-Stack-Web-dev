@@ -1,10 +1,3 @@
-// let p=document.querySelectorAll('p')
-
-// p.forEach(function(para){
-//     if(para.textContent.includes('the'))
-//         para.remove();
-// })
-
 const todos = [{
     text: 'Order Cat food',
     completed: false
@@ -22,79 +15,62 @@ const todos = [{
     completed: true
 }]
 
-
-//render notes
+// Render notes
 const filter = {
     searchText: ''
 }
 
 const renderNotes = function (todos, filter) {
-    const filteredNotes = todos.filter(function (notes) {
-        return notes.text.toLowerCase().includes(filter.searchText.toLowerCase());
+    const filteredNotes = todos.filter(function (note) {
+        return note.text.toLowerCase().includes(filter.searchText.toLowerCase());
     })
-    // console.log(filteredNotes);
-    document.querySelector('#notes').innerHTML = ''; //this clears the screen to initial condition
-    // filteredNotes.forEach(function (note) {
-    //     const pl = document.createElement('p');
-    //     pl.textContent = note.text;
-    //     document.querySelector('#notes').appendChild(pl)
-    // })
+    document.querySelector('#notes').innerHTML = ''; // This clears the screen to initial condition
+    filteredNotes.forEach(function (note) {
+        const p = document.createElement('p');
+        p.textContent = note.text;
+        document.querySelector('#notes').appendChild(p);
+    })
 }
 
-//initial rendering
+// Initial rendering
 renderNotes(todos, filter);
 
 let count = 0;
 todos.forEach(function (ele) {
-    if (!ele.completed)
-        count++;
+    if (!ele.completed) count++;
 })
 
 const ps = document.createElement('h2');
-ps.textContent = `You have ${count} todos left`
-document.querySelector('body').appendChild(ps)
+ps.textContent = `You have ${count} todos left`;
+document.querySelector('body').appendChild(ps);
 
-//Listen for todo text change
+// Listen for todo text change
 document.querySelector('#searchTodo').addEventListener('input', function (e) {
     filter.searchText = e.target.value;
-    renderNotes(todos, filter)   //rerender the notes
+    renderNotes(todos, filter); // Rerender the notes
 })
 
-//eventlistener for submit handler
+// Event listener for submit handler
 document.querySelector('#createTodo').addEventListener('submit', function (e) {
     e.preventDefault();
     const newTitle = {
         text: e.target.elements.titleTodo.value,
         completed: false
     }
-    console.log(newTitle);
     todos.push(newTitle);
     e.target.elements.titleTodo.value = '';
     renderNotes(todos, filter);
 })
 
-//event listener for hideCompleted
-// const completedTodoArray = []; //new array to store the completed tasks.
-// document.querySelector('#notes').innerHTML=''
-// document.querySelector("#hideCompleted").addEventListener('change', function (e) {
-//     let ch = e.target.checked;
-//     if (ch) {
-//         const completedTodos = todos.filter(function (todo) {
-//             return todo.completed;
-//         })
-//         // console.log(completedTodos);
-//         completedTodos.forEach(function (item) {
-//             completedTodoArray.push(item)
-//         })
-//         renderNotes(completedTodoArray, filter);
-//     }
-//     else
-//         renderNotes(todos,filter);
-// })
-
-document.querySelector('#hideCompleted').addEventListener('change',function(e){
-    let checked=e.target.checked;
+// Event listener for hideCompleted
+document.querySelector('#hideCompleted').addEventListener('change', function (e) {
+    const checked = e.target.checked;
+    if (checked) {
+        const completedTodos = todos.filter(function (todo) {
+            return !todo.completed;
+        })
+        renderNotes(completedTodos, filter);
+    } else {
+        renderNotes(todos, filter);
+    }
 })
-
-
-
