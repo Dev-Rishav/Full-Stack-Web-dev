@@ -149,14 +149,33 @@ document.querySelector('#testing').addEventListener('change',function(e){
 //Local Storage support with CRUD operations (Create Read Update Delete)
 
 /*---------Create----------*/
-localStorage.setItem('location','WestBengal');
+// localStorage.setItem('location','WestBengal');
 
-/*----------Read-----------*/
-console.log(localStorage.getItem('location'));
+// /*----------Read-----------*/
+// console.log(localStorage.getItem('location'));
 
-/*-------------Update---------*/
-localStorage.setItem('location','Bhopal');
+// /*-------------Update---------*/
+// localStorage.setItem('location','Bhopal');
 
-/*-----------Delete----------*/
-localStorage.removeItem('location'); //removes only location variable from local storage
-localStorage.clear()//removes all data items 
+// /*-----------Delete----------*/
+// localStorage.removeItem('location'); //removes only location variable from local storage
+// localStorage.clear()//removes all data items 
+
+//localStorage object can only store data in string format so we need to convert all the data items to strings
+//converting objects to string using JSON (Java Script Object Notifier)
+
+// const user={
+//     name: 'Rishav',
+//     age: 23
+// }
+
+//storing the data in local storage 
+// const userJson=JSON.stringify(user); //stringify use to convert to string
+// console.log(userJson);
+// localStorage.setItem('user',userJson);
+
+//retrieving the data from local storage
+const userJson=localStorage.getItem('user');
+const user=JSON.parse(userJson); //parse used to convert from string
+console.log(`${user.name} is ${user.age} years old`);
+
