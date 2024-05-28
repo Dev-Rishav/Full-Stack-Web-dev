@@ -144,3 +144,19 @@ document.querySelector('#searchText').addEventListener('input',function(e){
 document.querySelector('#testing').addEventListener('change',function(e){
     console.log(e.target.checked); //returns boolean
 })
+
+
+//Local Storage support with CRUD operations (Create Read Update Delete)
+
+/*---------Create----------*/
+localStorage.setItem('location','WestBengal');
+
+/*----------Read-----------*/
+console.log(localStorage.getItem('location'));
+
+/*-------------Update---------*/
+localStorage.setItem('location','Bhopal');
+
+/*-----------Delete----------*/
+localStorage.removeItem('location'); //removes only location variable from local storage
+localStorage.clear()//removes all data items 
