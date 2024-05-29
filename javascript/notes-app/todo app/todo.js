@@ -1,19 +1,24 @@
-const todos = [{
-    text: 'Order Cat food',
-    completed: false
-}, {
-    text: 'Clean kitchen',
-    completed: true,
-}, {
-    text: 'Buy Food',
-    completed: true
-}, {
-    text: 'Do work',
-    completed: false
-}, {
-    text: 'Exercise',
-    completed: true
-}]
+// const todos = [{
+//     text: 'Order Cat food',
+//     completed: false
+// }, {
+//     text: 'Clean kitchen',
+//     completed: true,
+// }, {
+//     text: 'Buy Food',
+//     completed: true
+// }, {
+//     text: 'Do work',
+//     completed: false
+// }, {
+//     text: 'Exercise',
+//     completed: true
+// }]
+
+let todos = []
+//read data from local storage
+if(localStorage.getItem('todos')!=null)
+    todos=JSON.parse(localStorage.getItem('todos'));
 
 // Render notes
 const filter = {
@@ -50,7 +55,7 @@ document.querySelector('#searchTodo').addEventListener('input', function (e) {
     renderNotes(todos, filter); // Rerender the notes
 })
 
-// Event listener for submit handler
+// Event listener for createTODO handler
 document.querySelector('#createTodo').addEventListener('submit', function (e) {
     e.preventDefault();
     const newTitle = {
@@ -58,6 +63,7 @@ document.querySelector('#createTodo').addEventListener('submit', function (e) {
         completed: false
     }
     todos.push(newTitle);
+    localStorage.setItem('todos',JSON.stringify(todos)); //store the data
     e.target.elements.titleTodo.value = '';
     renderNotes(todos, filter);
 })
@@ -74,3 +80,5 @@ document.querySelector('#hideCompleted').addEventListener('change', function (e)
         renderNotes(todos, filter);
     }
 })
+
+

@@ -179,3 +179,14 @@ const userJson=localStorage.getItem('user');
 const user=JSON.parse(userJson); //parse used to convert from string
 console.log(`${user.name} is ${user.age} years old`);
 
+
+
+//check for existing saved time
+
+if(localStorage.getItem('notes')==null){
+    notes.push({
+        title:'',
+        body:''
+    })
+}
+
