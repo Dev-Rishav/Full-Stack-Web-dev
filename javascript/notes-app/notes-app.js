@@ -35,16 +35,6 @@
 
 
 
-const notes=[{
-    title: 'my next trip',
-    body:'I would like to go to Spain'
-},{
-    title:'habits to work on',
-    body:'Exercise. Eating a bit better'
-},{
-    title:'Office Modification',
-    body:'Get a new seat'
-}]
 
 
 // document.querySelector('button').addEventListener('click',function(e){
@@ -106,26 +96,6 @@ document.querySelector('#secondButton').addEventListener('click',function(){
 // })  //change event only fires when enter is pressed or focus is shifted
 
 
-
-
-//render all the notes 
-
-const filter={
-    searchText:''
-}
-
-const notesFilter=function(notes,filter){
-    const filteredNotes=notes.filter(function(note){
-        return note.title.toLowerCase().includes(filter.searchText.toLowerCase());
-    })
-    document.querySelector('#notesMenu').innerHTML='';
-    filteredNotes.forEach(function(note){
-        const newEle=document.createElement('p')
-        newEle.textContent=note.title;
-        document.querySelector('#notesMenu').appendChild(newEle)
-    })
-}
-
 //initial rendering
 notesFilter(notes,filter);
 
@@ -174,12 +144,10 @@ document.querySelector('#testing').addEventListener('change',function(e){
 // console.log(userJson);
 // localStorage.setItem('user',userJson);
 
-//retrieving the data from local storage
-const userJson=localStorage.getItem('user');
-const user=JSON.parse(userJson); //parse used to convert from string
+
+
+const user=getData('user');
 console.log(`${user.name} is ${user.age} years old`);
-
-
 
 //check for existing saved time
 
