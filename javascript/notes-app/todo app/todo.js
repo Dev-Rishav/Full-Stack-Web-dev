@@ -1,53 +1,14 @@
-// const todos = [{
-//     text: 'Order Cat food',
-//     completed: false
-// }, {
-//     text: 'Clean kitchen',
-//     completed: true,
-// }, {
-//     text: 'Buy Food',
-//     completed: true
-// }, {
-//     text: 'Do work',
-//     completed: false
-// }, {
-//     text: 'Exercise',
-//     completed: true
-// }]
-
-let todos = []
-//read data from local storage
-if(localStorage.getItem('todos')!=null)
-    todos=JSON.parse(localStorage.getItem('todos'));
+//Fetch existing todos from local Storage
+let todos=[]
+todos=getSavedTodos('todos');
 
 // Render notes
 const filter = {
     searchText: ''
 }
-
-const renderNotes = function (todos, filter) {
-    const filteredNotes = todos.filter(function (note) {
-        return note.text.toLowerCase().includes(filter.searchText.toLowerCase());
-    })
-    document.querySelector('#notes').innerHTML = ''; // This clears the screen to initial condition
-    filteredNotes.forEach(function (note) {
-        const p = document.createElement('p');
-        p.textContent = note.text;
-        document.querySelector('#notes').appendChild(p);
-    })
-}
-
 // Initial rendering
-renderNotes(todos, filter);
+renderTodos(todos,filter);
 
-let count = 0;
-todos.forEach(function (ele) {
-    if (!ele.completed) count++;
-})
-
-const ps = document.createElement('h2');
-ps.textContent = `You have ${count} todos left`;
-document.querySelector('body').appendChild(ps);
 
 // Listen for todo text change
 document.querySelector('#searchTodo').addEventListener('input', function (e) {
@@ -63,9 +24,9 @@ document.querySelector('#createTodo').addEventListener('submit', function (e) {
         completed: false
     }
     todos.push(newTitle);
-    localStorage.setItem('todos',JSON.stringify(todos)); //store the data
+    savedTodos('todos',todos);
     e.target.elements.titleTodo.value = '';
-    renderNotes(todos, filter);
+    renderTodos(todos, filter);
 })
 
 // Event listener for hideCompleted
@@ -75,9 +36,9 @@ document.querySelector('#hideCompleted').addEventListener('change', function (e)
         const completedTodos = todos.filter(function (todo) {
             return !todo.completed;
         })
-        renderNotes(completedTodos, filter);
+        renderTodos(completedTodos, filter);
     } else {
-        renderNotes(todos, filter);
+        renderTodos(todos, filter);
     }
 })
 
