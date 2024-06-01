@@ -15,6 +15,7 @@ document.querySelector('#searchTodo').addEventListener('input', function (e) {
     filter.searchText = e.target.value;
     renderNotes(todos, filter); // Rerender the notes
 })
+debugger
 
 // Event listener for createTODO handler
 document.querySelector('#createTodo').addEventListener('submit', function (e) {
