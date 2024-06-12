@@ -13,15 +13,18 @@ function App() {
   //let counter =0;
 
   const addValue= () => {
-    
+    if(counter <20){
     // counter= counter+1;
     //we dont need to update the variable manually, react will handle it by itself.
     setCounter(counter+1);
     console.log("clicked", counter);
+    }
   }
 
   const removeValue = () => {
-    setCounter(counter-1);
+    if(counter === 0)
+        return
+    setCounter(counter - 1);
     console.log("clicked", counter);
 
   }
