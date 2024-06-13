@@ -11,10 +11,12 @@ function App() {
     Age: 23
   }
 
+  let myArr=[1,2,4,5];
+
   return (
     <>
       <h1 className='bg-green-400 text-black p-4 rounded-xl mb-4'>Tailwind test</h1>
-      <Card name="rishav" someObj={myObj}/>
+      <Card name="rishav" someObj={myArr}/>
       <Card/>
 
     </>
