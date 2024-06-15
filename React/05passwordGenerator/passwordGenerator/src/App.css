@@ -1,0 +1,98 @@
+/* App.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #282c34;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .max-w-md {
+    max-width: 28rem; /* 448px */
+  }
+  
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rounded-lg {
+    border-radius: 0.5rem;
+  }
+  
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .my-8 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .text-orange-300 {
+    color: #fbbf24;
+  }
+  
+  .bg-gray-700 {
+    background-color: #374151;
+  }
+  
+  .text-white {
+    color: #ffffff;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .my-3 {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .flex-shadow {
+    display: flex;
+  }
+  
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  
+  .outline-none {
+    outline: none;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  
+  .px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
