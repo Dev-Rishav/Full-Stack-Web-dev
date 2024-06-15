@@ -4,7 +4,7 @@ import { useState } from "react"; //to use hooks
 
 function App() {
 
-  let [counter, setCounter] = useState (0); //using useState hooks
+  let [counter, setCounter] = useState (15); //using useState hooks
   //it returns an array. the first element is the variable we are working on and 
   // other is the function or method which will update the variable
 
@@ -16,7 +16,10 @@ function App() {
     if(counter <20){
     // counter= counter+1;
     //we dont need to update the variable manually, react will handle it by itself.
-    setCounter(counter+1);
+    // setCounter(counter+1);
+    setCounter((prevCounter) => prevCounter + 1 ); //increments by 1 
+    setCounter ( prevCounter => prevCounter + 1 ); //increments by 1
+    setCounter(c=>c+2); //increments by 2
     console.log("clicked", counter);
     }
   }
