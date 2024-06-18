@@ -32,7 +32,7 @@ function App() {
 
   const copyPasswordToClipboard=useCallback(() => {
     passwordRef.current?.select();//after copying, this hook highlight the part that is copied || ? is used to determine i the value is null then pass or otherwise execute
-    passwordRef.current?.setSelectionRange(0,30); //dont let user copy more than  30 characters from the input box 
+    passwordRef.current?.setSelectionRange(0,30); //don't let user copy more than  30 characters from the input box 
     window.navigator.clipboard.writeText(password);//copy the text from the input box to clipboard
 
   },[password])
