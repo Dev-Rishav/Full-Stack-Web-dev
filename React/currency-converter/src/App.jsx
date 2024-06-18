@@ -13,7 +13,13 @@ const App = () => {
   const currencyInfo=useCurrencyInfo(from); 
 
   const options= Objects.keys(currencyInfo);//this will return all the keys of the objects 
-  
+
+  const swap = () =>{   //this function swaps the values of the twp input field
+    setFrom(to);
+    setTo(from);
+    setConvertedAmount(amount); //1 these are optional 
+    setAmount(amount)   //2
+  }
 
 
   return (
