@@ -13,7 +13,7 @@ function InputBox({
   }) {
 
   return (
-    <div className={`bg-white p-3 rounded-lg text-sm flex`}> 
+    <div className={`bg-white p-3 rounded-lg text-sm flex ${className}`}> 
     {/* here we are taking css from user so to use that variable in react we are using string fromat JS */}
       <div className='w-1/2'>
       <label className='text-black/40 mb-2 inline-block' >
