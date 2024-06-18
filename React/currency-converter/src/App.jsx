@@ -11,14 +11,15 @@ const App = () => {
 
 
   const currencyInfo=useCurrencyInfo(from); 
+  console.log(currencyInfo); //TODO
 
   const options= Object.keys(currencyInfo);//this will return all the keys of the objects 
 
   const swap = () =>{   //this function swaps the values of the twp input field
     setFrom(to);
     setTo(from);
-    setConvertedAmount(amount); //1 these are optional 
-    setAmount(amount)   //2
+    setConvertedAmount(amount); //1 this is optional 
+    setAmount(amount)   //2 this is optional
   }
 
   //the api keys that are received are in percentage form, we need to multiply those with the given input values
