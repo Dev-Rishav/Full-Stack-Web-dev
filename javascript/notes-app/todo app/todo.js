@@ -41,6 +41,19 @@ document.querySelector('#hideCompleted').addEventListener('change', function (e)
     } else {
         renderTodos(todos, filter);
     }
+    const [contact, setContact] = useState([]); //Initialize an empty array
+
+  const [isOpen,setOpen]= useState(false);
+
+  const onOpen = () => {
+    setOpen(true);
+  };
+
+  
+
+  const onClose= () => {
+    setOpen(false);
+  }
 })
 
 
