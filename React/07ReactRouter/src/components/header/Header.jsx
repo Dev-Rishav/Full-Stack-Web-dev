@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink } from 'react-router-dom';  //link is used in place of <A/> tag. Incase of 
-//<A/> tag the page refreshes 
+//<A/> tag the page refreshes  where as link is used to repaint the dom structure whenever new value is injected
 
 export default function Header() {
     return (
