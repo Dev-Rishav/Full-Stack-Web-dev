@@ -30,6 +30,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}/> //we only have to render the router, which will paint all the pages connected to it.
+    <RouterProvider router={router}/> {/*we only have to render the router, which will paint all the pages connected to it.*/}
   </React.StrictMode>,
 )
