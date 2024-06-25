@@ -37,20 +37,21 @@ export default function Header() {
                                 <NavLink
                                 to="/" /*Telling navlink where to go */
                                     className={(isActive) =>
-                                        `${isActive ? "text-orange-700" : "text-gray-700"} block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                        // console.log(isActive.isActive);
+                                        `${isActive.isActive ? "text-orange-700" : "text-gray-700"} block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
                                     }   //here we are using call back function in css, cause if we want to change the color of the text when hovered then this call back function provides a property call "isActive"
                                 //isActive is true when that particular text is hovered on
-                                >
+                                    >
                                     Home
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink
-                                to="/about" /*Telling navlink to visit /about */
+                                to="about" /*Telling navlink to visit /about */
                                 //this to will automatically inject data to isActive variable 
                                 
                                     className={(isActive) =>
-                                        `${isActive ? "text-orange-700"  : "text-gray-700"} block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                        isActive.isActive ? "text-orange-700 "  : "text-gray-700"
                                     }>
                                         About
                                     </NavLink>

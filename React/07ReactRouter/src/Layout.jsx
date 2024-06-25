@@ -11,7 +11,7 @@ const Layout = () => {
                 {/* //header wont change dynamically */}
             <Outlet/>   
                 {/* Basically outlet let us dynamically update components and elements inside it without re rendering the other two components that is <Header/> and <Footer/> */}
-            <Footer />  
+            {/* <Footer />   */}
                 {/* //footer wont change dynamically */}
         </>
     )
