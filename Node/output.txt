@@ -1,0 +1,22 @@
+This is what we have learned about file handling in node learNode JS Pros:
+-> node js is single threaded based on event driven, non blocking I/O model 
+-> Perfect for building fast anf scalable data-intensive apps
+
+
+Node.js Usefulness:
+-> API with database behind it  (Preferably No SQL)
+-> Data streaming (YouTube)
+-> Real time chat application
+-> Server side web application (where all the contents  are generated on the server side)
+
+Node.js where not to use:
+-> Application with heavy server-side prcessing (CPU-intensive) [Rails, php,python]
+
+Node can be used in terminal too
+-> Write Node
+-> then write your js code and hit enter.
+-> '_' underscore is used in node server (terminal) to access the result of previous value.
+ like: 2+4=5
+        _+5=10
+        
+Created on 1722002867291
