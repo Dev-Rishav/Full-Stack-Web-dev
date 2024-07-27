@@ -6,18 +6,19 @@ const fs = require('fs');
 const server = http.createServer((req, res) => {
     const pathName = req.url;
 
+const data=fs.readFileSync('./testapi.json','utf-8');
+    const dataObj = JSON.parse(data);
+
+
     if (pathName === '/')
         res.end("This is home page")
     else if (pathName === '/about')
         res.end("This is about section");
     else if (pathName === '/api') {
-        fs.readFile('./testapi.json', (err, data) => {
-            const productData = JSON.parse(data);
-            res.writeHead(200,{
-                'content-type': 'application/json'
-            })
-            res.end(data);  //!end() expects string to be passed not object
-        });
+        res.writeHead(200,{
+            'content-type': 'application/json'
+        })
+        res.end(data);  //!end() expects string to be passed not object
     }
     else {
         res.writeHead(404, {
