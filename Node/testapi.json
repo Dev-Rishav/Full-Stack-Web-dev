@@ -1,0 +1,11 @@
+[{
+    "id":0,
+    "product": "toothbrush",
+    "price": 30
+
+},
+{
+    "id":1,
+    "product": "toothpaste",
+    "price": 90
+}]
