@@ -42,5 +42,23 @@ const loadNotes = function () {
   }
 };
 
+const removeNote = function(title){
+    let notes=loadNotes();
+    const noteRemove=notes.filter(function(note){
+        return note.title === title
+    })
+    if(noteRemove.length >0){
+      console.log(chalk.red("Removing Note"));
+        notes=notes.filter((note)=>{
+            return note.title !== title;
+        })
+        // console.log(typeof(notes));
+        const notesJson=JSON.stringify(notes)
+        fs.writeFileSync('notes.json',notesJson);
+    }
+    else  
+      console.log(chalk.red.inverse("Note title does not exists!"));
+}
+
 // Exporting functions using ES module syntax
-export { getNotes, addNote };
+export { getNotes, addNote,removeNote};

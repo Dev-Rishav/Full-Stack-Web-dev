@@ -3,7 +3,9 @@ const require = createRequire(import.meta.url);
 
 import yargs from "yargs/yargs";
 import { hideBin } from "yargs/helpers";
-import { getNotes, addNote } from "./08notes.mjs";
+import { getNotes, addNote,removeNote } from "./08notes.mjs";
+import { title } from "process";
+// import { demandOption } from "yargs";
 
 // Create an instance of yargs
 const argv = yargs(hideBin(process.argv))
@@ -30,8 +32,15 @@ const argv = yargs(hideBin(process.argv))
   .command({
     command: "remove",
     describe: "Removing note",
-    handler: function () {
-      console.log("Removing note");
+    builder:{
+        title:{
+            describe:"remove",
+            demandOption:true,
+            type:"string",
+        },
+    },
+    handler: function (argv) {
+      removeNote(argv.title);
     },
   })
   .command({

@@ -1,18 +1,4 @@
 [
-    {
-        "title": "yes",
-        "body": "no"
-    },
-    {
-        "title": "yes",
-        "body": "no"
-    },
-    {
-        "title": "gg",
-        "body": "haha"
-    },
-    {
-        "title": "gg1",
-        "body": "hah"
-    }
+  { "title": "gg", "body": "haha" },
+  { "title": "gg1", "body": "hah" }
 ]
