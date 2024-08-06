@@ -11,17 +11,15 @@ const addNote = (title, body) => {
     console.log(title,body);
 
   const notes = loadNotes();
-  const duplicateNote = notes.filter( (note) => {
-    return note.title === title;
-  });
+  const duplicateNotes = notes.filter( (note) => note.title === title); //*runs through the whole array even after a duplicate is found
+  const duplicateNote =notes.find((note)=>note.title===title);//*runs through the whole array until and unless a duplicate is found.
 
-  if (duplicateNote.length === 0) {
+
+  if (!duplicateNote) {
     notes.push({
       title: title,
       body: body,
     });
-    // console.log(notes);
-
     saveNotes(notes);
     console.log(chalk.green.inverse('Notes added successfully'));
   } else {
@@ -48,15 +46,10 @@ const loadNotes = () => {
 
 const removeNote = (title)=>{
     let notes=loadNotes();
-    const noteRemove=notes.filter((note)=>{
-        return note.title === title
-    })
+    const noteRemove=notes.filter((note)=> note.title === title)
     if(noteRemove.length >0){
       console.log(chalk.red("Note Removed!"));
-        notes=notes.filter((note)=>{
-            return note.title !== title;
-        })
-        // console.log(typeof(notes));
+        notes=notes.filter((note)=> note.title !== title);
         const notesJson=JSON.stringify(notes)
         fs.writeFileSync('notes.json',notesJson);
     }
@@ -64,5 +57,28 @@ const removeNote = (title)=>{
       console.log(chalk.red.inverse("Note title does not exists!"));
 }
 
+const listNotes = ()=>{
+    const notes=loadNotes();
+    if(notes.length===0)
+        console.log(chalk.red.inverse("No existing note found!"));
+    else{
+        console.log(chalk.green.inverse("Printing notes...\n"));
+        notes.map((note)=>{
+            console.log(note);
+            console.log("");
+        })
+    }
+}
+
+const readNote=(title)=>{
+    const notes=loadNotes();
+    const requiredNote=notes.find((note)=> note.title === title);
+    if(requiredNote){
+        console.log(requiredNote);
+    }
+    else
+        console.log(chalk.red("Note not found!"));
+}
+
 // Exporting functions using ES module syntax
-export { getNotes, addNote,removeNote};
+export { listNotes,getNotes, addNote,removeNote,readNote};
