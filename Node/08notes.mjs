@@ -3,20 +3,24 @@ import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const fs = require('fs');
 
-const getNotes = function () {
+const getNotes = () => {
   return 'Your notes...';
 };
 
-const addNote = function (title, body) {
+const addNote = (title, body) => {
+    console.log(title,body);
+
   const notes = loadNotes();
-  const duplicateNote = notes.filter(function (note) {
+  const duplicateNote = notes.filter( (note) => {
     return note.title === title;
   });
+
   if (duplicateNote.length === 0) {
     notes.push({
       title: title,
       body: body,
     });
+    // console.log(notes);
 
     saveNotes(notes);
     console.log(chalk.green.inverse('Notes added successfully'));
@@ -25,12 +29,12 @@ const addNote = function (title, body) {
   }
 };
 
-const saveNotes = function (notes) {
+const saveNotes = (notes) => {
   const dataJson = JSON.stringify(notes);
   fs.writeFileSync('notes.json', dataJson);
 };
 
-const loadNotes = function () {
+const loadNotes = () => {
   try {
     const dataBuffer = fs.readFileSync('notes.json');
     const dataJson = dataBuffer.toString();
@@ -42,13 +46,13 @@ const loadNotes = function () {
   }
 };
 
-const removeNote = function(title){
+const removeNote = (title)=>{
     let notes=loadNotes();
-    const noteRemove=notes.filter(function(note){
+    const noteRemove=notes.filter((note)=>{
         return note.title === title
     })
     if(noteRemove.length >0){
-      console.log(chalk.red("Removing Note"));
+      console.log(chalk.red("Note Removed!"));
         notes=notes.filter((note)=>{
             return note.title !== title;
         })
@@ -56,7 +60,7 @@ const removeNote = function(title){
         const notesJson=JSON.stringify(notes)
         fs.writeFileSync('notes.json',notesJson);
     }
-    else  
+    else
       console.log(chalk.red.inverse("Note title does not exists!"));
 }
 

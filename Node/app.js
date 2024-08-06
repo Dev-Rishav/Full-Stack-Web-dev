@@ -1,11 +1,8 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
-
 import yargs from "yargs/yargs";
 import { hideBin } from "yargs/helpers";
 import { getNotes, addNote,removeNote } from "./08notes.mjs";
-import { title } from "process";
-// import { demandOption } from "yargs";
 
 // Create an instance of yargs
 const argv = yargs(hideBin(process.argv))
@@ -25,8 +22,8 @@ const argv = yargs(hideBin(process.argv))
         type: "string",
       },
     },
-    handler: function (argv) {
-      addNote(argv.title, argv.body);
+    handler: (argv) =>{
+        addNote(argv.title,argv.body)
     },
   })
   .command({
@@ -39,21 +36,21 @@ const argv = yargs(hideBin(process.argv))
             type:"string",
         },
     },
-    handler: function (argv) {
-      removeNote(argv.title);
+    handler: (argv)=>{
+        removeNote(argv.title);
     },
   })
   .command({
     command: "read",
     describe: "Reading a note",
-    handler: function () {
+    handler:() => {
       console.log("Reading a note");
     },
   })
   .command({
     command: "list",
     describe: "Listing commands",
-    handler: function () {
+    handler: () => {
       console.log("Listing commands");
     },
   })
