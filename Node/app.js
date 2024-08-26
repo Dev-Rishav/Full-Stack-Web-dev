@@ -3,7 +3,6 @@ const require = createRequire(import.meta.url);
 import yargs from "yargs/yargs";
 import { hideBin } from "yargs/helpers";
 import { listNotes,getNotes, addNote,removeNote,readNote } from "./08notes.mjs";
-// import { demandOption } from "yargs";
 
 // Create an instance of yargs
 const argv = yargs(hideBin(process.argv))

@@ -1,0 +1,11 @@
+GET method: Get method is used to fetch information from server according to the query parameters.
+    Whenever we try to navigate to a page or do a search query in a website. Get method is used to fetch the required data from the server.
+
+POST method: Post method is used to write information into the server. This method is mainly used in forms where information are needed to be sent to the server database.
+
+PUT method:Puth method or request is used to upload file i.e image, audio,etc to the server.
+
+
+PATCH method:patch method or request is used to update data that is already uploaded in server.
+
+DELETE method: delete request or method is used to permanently delete data from the server.
