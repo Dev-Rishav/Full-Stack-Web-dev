@@ -24,6 +24,7 @@ const myServer= http.createServer((req,res)=>{
                     //DB query
                     res.end("Success");
                 }
+                break;
             default:
                 res.end("404 not found!");
         }

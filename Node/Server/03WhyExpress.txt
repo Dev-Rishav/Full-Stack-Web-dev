@@ -1,0 +1,4 @@
+As we have seen in the 02HttpMethod.js how the server is created and then managed like for every route there is an switch-case and for every route within, there is if else for handling the http methods.
+
+To overcome this situation we have a framework called "Express JS" which helps us to manage this anonymous function that is being passed when server is created. (req,res)=>{}
+
