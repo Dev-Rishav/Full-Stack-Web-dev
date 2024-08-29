@@ -1,0 +1,6 @@
+
+
+
+1. Works on server client arhictecture (Independent of each others).
+
+2. Always respect all http methods (GET,POST,PUT,PATCH,DELETE)

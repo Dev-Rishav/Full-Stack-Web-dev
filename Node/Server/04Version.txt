@@ -1,0 +1,38 @@
+//Version
+
+//4.19.3
+
+1st part-> 4
+2nd part-> 19
+3rd part->3
+
+//3rd part (Last part)- Minor fixes(Optional)
+
+//2nd part- Recommended Bug fixes (or new features are added)
+
+//1st Part(first part) Major relaese (should only be updated if and only if starting a new project or understanding all the changes that are being done in the release and shift your existing code with that.)
+
+
+^4.19.X this '^' symbol specifies that you can install any bug fix releases version but not major releases like in this above example,
+^4.19.X we can install upto less than 5.0.0
+
+
+used /explain (rerun without)
+In Node.js, versioning is an important aspect of managing dependencies and ensuring compatibility between different packages and modules. Versioning allows developers to specify the specific version or range of versions of a package that their project depends on.
+
+In the provided example, the version range is ^4.19.X. This is a form of semantic versioning, which consists of three parts: MAJOR.MINOR.PATCH.
+
+The MAJOR version represents incompatible changes. When a package's MAJOR version changes, it indicates that there are breaking changes and may require modifications in your code to work with the new version.
+
+The MINOR version represents new features or enhancements that are backward-compatible. When a package's MINOR version changes, it indicates that new functionality has been added, but existing code should still work without modifications.
+
+The PATCH version represents bug fixes or patches that do not introduce new features or breaking changes. When a package's PATCH version changes, it indicates that there have been bug fixes or minor updates that should not affect the compatibility of your code.
+
+The caret (^) symbol in front of the version range indicates that the package can be updated to a newer MINOR or PATCH version, as long as it remains within the same MAJOR version. For example, if the current version is 4.19.0, the caret symbol allows updating to any version within the 4.x.x range, such as 4.20.0 or 4.19.1, but not to version 5.0.0.
+
+This version range is useful because it allows you to automatically receive bug fixes and new features without worrying about breaking changes. However, it's important to periodically review and test your code with newer versions to ensure compatibility and avoid unexpected issues.
+
+In Node.js, you can manage dependencies and version ranges using the npm package manager. By specifying version ranges in your package.json file, npm will install the appropriate versions of the packages based on the defined ranges when you run npm install.
+
+
+~ this symbol specifies only small releases are permitted like 4.18.1 -> 4.18.X .It will not automatically update to 4.19.X (only last bit changes)
