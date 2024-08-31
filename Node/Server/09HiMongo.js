@@ -44,7 +44,7 @@ const userSchema=mongoose.Schema({
     gender:{
         type: String,
     }
-});
+},{timestamps:true});   //timestamps attach two new attributes i.e. createdAt and updatedAt to organize things more symmetrically.
 
 //Model
 const User=mongoose.model('user',userSchema)
@@ -53,69 +53,39 @@ const User=mongoose.model('user',userSchema)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-const users = require('./MOCK_DATA.json');
-
 //Rest API
-app.get('/users', (req, res) => {
+app.get('/users', async(req, res) => {
+    const allDBUsers= await User.find({});  //* returns all the objects that are present on  User collection 
     const html = `
     <ul>
-        ${users.map((user) => `<li>${user.first_name}</li>`).join("")}
+        ${allDBUsers.map((user) => `<li>${user.firstName}</li>`).join("")}
     </ul>`;
     return res.send(html);
 });
 
 
 
-app.get('/api/users',(req,res)=>{
-    return res.json(users);
+app.get('/api/users',async (req,res)=>{
+    const allDBUsers = await User.find({});
+    return res.json(allDBUsers);
 })
 
 
 
 app.route("/api/users/:id")
-    .get((req, res) => {
-        const id = Number(req.params.id);
-        const user = users.find((user) => user.id === id);
+    .get(async (req, res) => {
+        const user = await User.findById(req.params.id);    //*search the collection for that particular ID.
         if(!user)
             return res.status(404).json({user: "Not Found"});
         return res.json(user);
     })
-    .patch((req, res) => {
-        const body = req.body;        
-        const id = Number(req.params.id);
-        const userIndex = users.findIndex((user) => user.id === id);
-
-        if (userIndex !== -1) {
-            const result= { ...users[userIndex], ...body, id: id };
-            users[userIndex] = result;
-            fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err) => {
-                if (err) {
-                    return res.status(500).json({ status: 'error', message: 'Failed to update user data' });
-                }
-                return res.json({ status: 'success', id: id });
-            });
-        } else {
-            return res.status(404).json({ status: 'error', message: 'User not found' });
-        }
+    .patch(async(req, res) => {
+        await User.findByIdAndUpdate(req.params.id,req.body);   //finds and update that object with the object passed as second arguement
+        return res.status(200).json({status: "Success"});
     })
-    .delete((req, res) => {
-        const id=Number(req.params.id);        
-        const index=users.findIndex((user)=>user.id===id);
-        console.log(index);
-        
-        if(index !== -1){
-            users.splice(index,1);
-            fs.writeFile("./MOCK_DATA.json",JSON.stringify(users),(err)=>{
-                if(err)
-                    console.log(err);
-                else    
-                    return res.json({staus:"success"});
-            })
-        }
-        else
-            return res.json({status:"failed",err:"id not found"});
-        
+    .delete(async(req, res) => {
+        await User.findByIdAndDelete(req.params.id);
+        return res.json(200).json({status:"success"});
     });
 
 //make this asyncronous (async-await)
@@ -125,15 +95,13 @@ app.post('/api/users', async (req, res) => {
     if(!body || !body.first_name || !body.last_name || !body.email || !body.gender || !body.job_title)
         return res.status(400).json({field:"missing"});
 
-    const result=await User.create({    //? this creates this user and return that object
+    const result= await User.create({    //? this creates this user and return that object
         firstName: body.first_name,
         lastName: body.last_name,
         gender:body.gender,
         email:body.email,
         jobTitle:body.job_title,
     });
-    console.log("user added ",result);
-    
     return res.status(201).json({msg:"success"});
 });
 
